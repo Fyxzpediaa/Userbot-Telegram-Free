@@ -1,160 +1,148 @@
-🤖 FYXZPEDIA USERBOT TELEGRAM
+<div align="center">🤖 FYXZPEDIA USERBOT
 
-<p align="center">
-  <b>Telegram Userbot untuk Termux Android</b><br>
-  <i>Simple • Powerful • Stable • Easy Setup</i>
-</p><p align="center">
-  <img src="https://img.shields.io/badge/Platform-Termux-000000?style=for-the-badge&logo=termux">
-  <img src="https://img.shields.io/badge/Node.js-Required-339933?style=for-the-badge&logo=node.js">
-  <img src="https://img.shields.io/badge/PM2-Process_Manager-2B037A?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Telegram-Userbot-26A5E4?style=for-the-badge&logo=telegram">
-</p>---
+Telegram Userbot • Termux • Android
 
-☁️ Arsitektur
+<p>
+  <img src="https://img.shields.io/badge/Telegram-Userbot-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+  <img src="https://img.shields.io/badge/Termux-Android-000000?style=for-the-badge&logo=termux&logoColor=white">
+  <img src="https://img.shields.io/badge/Node.js-20%2B-339933?style=for-the-badge&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/PM2-Process%20Manager-2B037A?style=for-the-badge">
+</p><p>
+  <b>⚡ Fast</b> &nbsp;•&nbsp;
+  <b>🛠️ Easy Setup</b> &nbsp;•&nbsp;
+  <b>📱 Android</b> &nbsp;•&nbsp;
+  <b>🔄 PM2</b>
+</p></div>---
 
-              ┌──────────────────────┐
-              │      ☁️ TELEGRAM     │
-              │       SERVER         │
-              └──────────┬───────────┘
+📌 Tentang
+
+Fyxzpedia Userbot adalah Telegram Userbot yang dirancang untuk berjalan di Termux Android.
+
+Project ini menggunakan:
+
+Komponen| Fungsi
+📱 Termux| Environment Linux di Android
+🟢 Node.js| Runtime Userbot
+⚡ PM2| Menjalankan & mengelola proses
+☁️ Telegram API| Komunikasi dengan Telegram
+🔐 Session| Menyimpan sesi login Telegram
+
+---
+
+🧩 Cara Kerja
+
+                    ☁️ TELEGRAM
                          │
                          │ Telegram API
                          ▼
-              ┌──────────────────────┐
-              │   🤖 FYXZPEDIA UBOT  │
-              │       Node.js        │
-              └──────────┬───────────┘
+              ┌─────────────────────┐
+              │   🤖 FYXZPEDIA      │
+              │      USERBOT        │
+              │      Node.js        │
+              └──────────┬──────────┘
                          │
                          ▼
-              ┌──────────────────────┐
-              │        ⚡ PM2         │
-              │   Process Manager    │
-              └──────────┬───────────┘
+              ┌─────────────────────┐
+              │       ⚡ PM2         │
+              │  Process Manager    │
+              └──────────┬──────────┘
                          │
                          ▼
-              ┌──────────────────────┐
-              │      📱 TERMUX       │
-              │       ANDROID        │
-              └──────────────────────┘
+              ┌─────────────────────┐
+              │      📱 TERMUX      │
+              │       ANDROID       │
+              └─────────────────────┘
 
 ---
 
-📋 Daftar Isi
+🚀 Quick Start
 
-- "✨ Tentang" (#-tentang)
-- "📱 Persyaratan" (#-persyaratan)
-- "🚀 Instalasi" (#-instalasi)
-- "🔑 Telegram API" (#-telegram-api)
-- "🤖 BotFather" (#-botfather)
-- "🔐 Login Telegram" (#-login-telegram)
-- "▶️ Menjalankan Userbot" (#️-menjalankan-userbot)
-- "📊 Status" (#-status)
-- "📜 Logs" (#-logs)
-- "🔄 Restart" (#-restart)
-- "⛔ Stop" (#-stop)
-- "⚡ Autostart" (#-autostart)
-- "🛠️ Troubleshooting" (#️-troubleshooting)
-- "🔒 Keamanan" (#-keamanan)
-- "📁 Lokasi File" (#-lokasi-file)
+«💡 Untuk pengguna baru: cukup ikuti bagian ini dari atas sampai bawah.»
 
----
+01 — Update Termux
 
-✨ Tentang
+pkg update -y
 
-Fyxzpedia Userbot Telegram adalah userbot Telegram yang dapat dijalankan melalui Termux Android.
+02 — Upgrade Package
 
-Userbot menggunakan:
+pkg upgrade -y
 
-- Node.js
-- Telegram API
-- PM2
-- Termux
-- Session Telegram
+03 — Install Dependency
 
-Repository:
+pkg install git wget unzip curl tar python clang make pkg-config -y
 
-Fyxzpediaa/Userbot-Telegram-Free
+04 — Clone Repository
+
+git clone https://github.com/Fyxzpediaa/Userbot-Telegram-Free.git
+
+05 — Masuk ke Folder
+
+cd ~/Userbot-Telegram-Free
+
+06 — Jalankan Installer
+
+bash install.sh
 
 ---
 
 📱 Persyaratan
 
-Sebelum melakukan instalasi, siapkan:
+Sebelum memulai, pastikan kamu memiliki:
 
 - Android
 - Termux
-- Internet
+- Koneksi internet
 - Akun Telegram
 - Telegram API ID
 - Telegram API Hash
-- Bot Token jika diperlukan oleh konfigurasi userbot
 
-«⚠️ Disarankan menggunakan Termux dari sumber resmi/terpercaya dan memberikan izin yang diperlukan hanya jika memang dibutuhkan.»
-
----
-
-🚀 Instalasi
-
-1. Update Termux
-
-Jalankan command berikut satu per satu.
-
-pkg update -y
-
-pkg upgrade -y
+«⚠️ Jangan gunakan akun Telegram yang tidak kamu kendalikan sendiri.»
 
 ---
 
-2. Install Dependency
+🔑 Telegram API
 
-pkg install git wget unzip curl tar python clang make pkg-config -y
+Untuk mendapatkan API ID dan API Hash, buka:
 
----
+https://my.telegram.org
 
-3. Cek Python
+Kemudian:
 
-python --version
+Login
+   ↓
+API Development Tools
+   ↓
+Create Application
+   ↓
+API ID + API Hash
 
----
+Simpan kedua informasi tersebut dengan aman.
 
-4. Cek Clang
-
-clang --version
-
----
-
-5. Masuk ke Home Termux
-
-cd ~
+«🔐 API Hash bersifat rahasia. Jangan upload ke GitHub.»
 
 ---
 
-6. Clone Repository
+⚙️ Proses Instalasi
 
-git clone https://github.com/Fyxzpediaa/Userbot-Telegram-Free.git
-
----
-
-7. Masuk ke Folder Repository
-
-cd ~/Userbot-Telegram-Free
-
----
-
-8. Cek File
-
-ls
-
-Pastikan file instalasi terlihat.
-
----
-
-9. Jalankan Installer
+Setelah menjalankan:
 
 bash install.sh
 
-Ikuti instruksi yang muncul di Termux.
+Installer akan melakukan beberapa proses seperti:
 
-Jika installer menanyakan:
+┌─────────────────────────────────┐
+│        FYXZPEDIA INSTALLER      │
+├─────────────────────────────────┤
+│ ✓ Check Termux                  │
+│ ✓ Check Node.js                 │
+│ ✓ Install dependencies          │
+│ ✓ Setup PM2                     │
+│ ✓ Setup configuration           │
+│ ✓ Telegram authentication       │
+│ ✓ Save session                  │
+└─────────────────────────────────┘
+
+Jika muncul pilihan:
 
 Where should the bot source come from?
 
@@ -169,97 +157,9 @@ Pilih:
 
 ---
 
-🔧 Jika Muncul Error node-gyp
-
-Jika muncul error seperti:
-
-gyp ERR!
-Could not find any Python installation
-
-atau error saat memasang:
-
-bufferutil
-
-install dependency berikut:
-
-pkg install python clang make pkg-config -y
-
-Cek Python:
-
-python --version
-
-Cek Clang:
-
-clang --version
-
-Kemudian kembali ke folder repository:
-
-cd ~/Userbot-Telegram-Free
-
-Jalankan installer lagi:
-
-bash install.sh
-
----
-
-🔑 Telegram API
-
-Untuk mendapatkan API ID dan API Hash, buka:
-
-https://my.telegram.org
-
-Login menggunakan akun Telegram.
-
-Kemudian pilih:
-
-API Development Tools
-
-Buat aplikasi jika belum memiliki API.
-
-Simpan:
-
-API ID
-API Hash
-
-⚠️ Jangan publikasikan API Hash.
-
----
-
-👤 Telegram User ID
-
-Jika installer membutuhkan Telegram User ID, kamu dapat menggunakan bot Telegram yang menyediakan informasi ID akun, misalnya:
-
-@userinfobot
-
-Kirim:
-
-/start
-
-Simpan User ID yang diberikan.
-
----
-
-🤖 BotFather
-
-Jika konfigurasi userbot meminta Bot Token, buat bot melalui:
-
-@BotFather
-
-Kirim:
-
-/newbot
-
-Ikuti instruksi sampai mendapatkan:
-
-Bot Token
-
-⚠️ Jangan pernah membagikan Bot Token.
-
----
-
 🔐 Login Telegram
 
-Saat installer meminta login Telegram, masukkan nomor Telegram kamu.
+Saat installer meminta nomor Telegram, masukkan nomor akun kamu.
 
 Contoh:
 
@@ -267,40 +167,38 @@ Contoh:
 
 Kemudian masukkan kode OTP yang dikirim Telegram.
 
-Jika akun menggunakan verifikasi dua langkah, masukkan password 2FA.
+Jika akun menggunakan 2FA, masukkan password 2FA.
 
-Jika login berhasil, biasanya akan muncul informasi seperti:
+Jika berhasil, akan muncul kurang lebih:
 
 [AUTH] Berhasil login!
 [SUCCESS] Userbot online sebagai: @username
 
 ---
 
-⚠️ Jika Muncul "Press CTRL+C"
+✅ Session Berhasil Disimpan
 
 Jika muncul:
 
-✓ Session saved. Press CTRL+C to finish the login step.
-
-dan sebelumnya sudah muncul:
-
-[AUTH] Berhasil login!
 ✓ Session saved.
-✓ Telegram login completed.
 
-maka session sudah tersimpan.
+berarti session Telegram sudah tersimpan.
 
-Tekan:
+Jika installer menampilkan:
+
+Press CTRL+C to finish the login step.
+
+tekan:
 
 CTRL + C
 
-untuk keluar dari tahap login interaktif.
+Kemudian lanjutkan ke tahap menjalankan Userbot.
 
 ---
 
 ▶️ Menjalankan Userbot
 
-Setelah instalasi selesai, jalankan:
+Setelah instalasi selesai:
 
 fyx start
 
@@ -308,100 +206,112 @@ Kemudian cek:
 
 fyx status
 
-Targetnya:
+Jika berhasil:
 
+Telegram login  : session saved
 PM2 process     : running
 
 ---
 
-📊 Status
+📊 Status Userbot
 
-Untuk melihat status userbot:
+Gunakan:
 
 fyx status
 
-Contoh kondisi normal:
+Contoh:
 
 Manager version : 1.0.0
 Bot version     : 2.0.0
+Install dir     : ~/.fyxzpedia
 settings.js     : valid
 Telegram login  : session saved
 PM2 process     : running
 
 ---
 
-📜 Logs
+📜 Melihat Log
 
-Untuk melihat log userbot:
+Untuk melihat aktivitas Userbot:
 
 fyx logs
 
-Gunakan:
+Keluar dari tampilan log:
 
 CTRL + C
-
-untuk keluar dari tampilan log.
 
 ---
 
 🔄 Restart
 
-Jika userbot mengalami masalah atau ingin menjalankan ulang:
+Jika Userbot perlu dijalankan ulang:
 
 fyx restart
 
-Kemudian cek:
+Kemudian:
 
 fyx status
-
-Jika perlu melihat error:
-
-fyx logs
 
 ---
 
 ⛔ Stop
 
-Untuk menghentikan userbot:
+Untuk menghentikan Userbot:
 
 fyx stop
-
-Cek status:
-
-fyx status
 
 ---
 
 ⚡ Autostart
 
-Jika ingin mengaktifkan proses boot/autostart yang disediakan oleh installer:
+Jika ingin menggunakan mekanisme boot yang disediakan installer:
 
-Pastikan userbot sudah berjalan:
+Jalankan Userbot
 
 fyx start
 
-Kemudian jalankan:
+Aktifkan Boot
 
 bash ~/.fyxzpedia/manager/boot.sh
 
-Cek kembali:
+Periksa Status
 
 fyx status
 
-Target:
+Jika berhasil, status akan menunjukkan:
 
 PM2 process     : running
 Boot autostart  : enabled
 
-«Catatan: kemampuan menjalankan proses secara otomatis setelah Android/Termux dibuka dapat bergantung pada konfigurasi perangkat dan Termux.»
+«ℹ️ Perilaku autostart dapat bergantung pada konfigurasi Android dan Termux.»
 
 ---
 
 🛠️ Troubleshooting
 
-❌ Node.js Bermasalah
+❌ "node-gyp" / Python Error
 
-Cek Node.js:
+Jika muncul error terkait Python atau "node-gyp":
+
+pkg install python clang make pkg-config -y
+
+Cek:
+
+python --version
+
+Kemudian kembali ke repository:
+
+cd ~/Userbot-Telegram-Free
+
+Jalankan installer kembali:
+
+bash install.sh
+
+---
+
+❌ Node.js Tidak Terdeteksi
+
+Cek:
 
 node --version
 
@@ -409,45 +319,15 @@ Cek npm:
 
 npm --version
 
-Jika diperlukan, install Node.js LTS:
+Jika diperlukan:
 
 pkg install nodejs-lts npm -y
 
-Cek kembali:
-
-node --version
-
-npm --version
-
 ---
 
-❌ Python Tidak Ditemukan
+❌ PM2 Tidak Berjalan
 
-Install Python:
-
-pkg install python -y
-
-Cek:
-
-python --version
-
----
-
-❌ PM2 Tidak Terinstall
-
-Install PM2:
-
-npm install -g pm2
-
-Cek:
-
-pm2 --version
-
----
-
-❌ PM2 Tidak Running
-
-Jalankan:
+Coba:
 
 fyx start
 
@@ -463,66 +343,56 @@ fyx logs
 
 ❌ Userbot Berhenti
 
-Coba restart:
+Restart:
 
 fyx restart
 
-Kemudian:
+Kemudian periksa:
 
 fyx status
 
-Jika masih bermasalah:
-
-fyx logs
-
 ---
 
-📁 Lokasi File
+📁 Struktur Penyimpanan
 
-Userbot dapat tetap disimpan di storage private Termux.
+Project tidak harus disimpan di folder Download Android.
 
 Repository:
 
 ~/Userbot-Telegram-Free
 
-Manager/config:
+Manager:
 
 ~/.fyxzpedia
 
-Contoh lokasi absolut:
+Dalam Termux, "~" berada di storage private aplikasi Termux.
 
-/data/data/com.termux/files/home/Userbot-Telegram-Free
+Contoh:
 
-dan:
+/data/data/com.termux/files/home/
 
-/data/data/com.termux/files/home/.fyxzpedia
-
-Tidak perlu menyimpan repository di:
+Jadi tidak perlu memindahkan project ke:
 
 /sdcard/Download
 
-atau:
-
-/storage/emulated/0/Download
-
 ---
 
-🔒 Keamanan
+🔒 SECURITY
 
-Jangan upload file rahasia ke GitHub.
-
-Jangan masukkan file atau informasi berikut ke repository publik:
+Jangan pernah upload informasi berikut ke repository publik:
 
 API Hash
 Bot Token
-OTP Telegram
-Password 2FA
 Telegram Session
+OTP
+Password 2FA
 session.json
 *.session
 .env
 
-Tambahkan ke ".gitignore":
+".gitignore"
+
+Gunakan:
 
 node_modules/
 
@@ -536,49 +406,48 @@ session.json
 
 *.session-journal
 
-data/
-
 logs/
 
 backups/
 
 ---
 
-📋 Quick Install
+🧹 Jika Ingin Membersihkan Repository
 
-Kalau ingin instalasi cepat, jalankan command berikut satu per satu.
+Periksa file:
 
-Update
+ls -la
 
-pkg update -y
+Pastikan file rahasia tidak ikut masuk repository.
 
-Upgrade
+Jika menggunakan Git:
 
-pkg upgrade -y
+git status
 
-Dependency
+---
 
-pkg install git wget unzip curl tar python clang make pkg-config -y
+📋 Command Reference
 
-Clone
+Command| Fungsi
+"fyx start"| Menjalankan Userbot
+"fyx stop"| Menghentikan Userbot
+"fyx restart"| Restart Userbot
+"fyx status"| Melihat status
+"fyx logs"| Melihat log
 
-cd ~
-
-git clone https://github.com/Fyxzpediaa/Userbot-Telegram-Free.git
-
-Masuk folder
-
-cd ~/Userbot-Telegram-Free
-
-Install
-
-bash install.sh
-
-Jalankan
+Start
 
 fyx start
 
-Cek
+Stop
+
+fyx stop
+
+Restart
+
+fyx restart
+
+Status
 
 fyx status
 
@@ -588,47 +457,36 @@ fyx logs
 
 ---
 
-🎯 Checklist
+🏁 Final Checklist
 
-Setelah selesai, pastikan:
-
-✓ Repository berhasil di-clone
-✓ Dependency berhasil di-install
-✓ Telegram berhasil login
-✓ Session tersimpan
-✓ PM2 berjalan
-✓ Userbot online
-
-Cek dengan:
+Sebelum menganggap instalasi selesai, jalankan:
 
 fyx status
 
-Kondisi yang diharapkan:
+Pastikan:
 
-Telegram login  : session saved
-PM2 process     : running
+✓ settings.js     : valid
+✓ Telegram login  : session saved
+✓ PM2 process     : running
 
-Jika autostart sudah diaktifkan:
+Jika menggunakan autostart:
 
-Boot autostart  : enabled
-
----
-
-💡 Catatan Copy Button GitHub
-
-Setiap command Termux di README ini sengaja dibuat menjadi blok kode terpisah.
-
-Dengan begitu GitHub akan memberikan tombol:
-
-📋 Copy
-
-pada setiap command.
-
-Jangan menggabungkan banyak command ke dalam satu blok jika ingin setiap command mempunyai tombol Copy sendiri.
+✓ Boot autostart  : enabled
 
 ---
 
-<p align="center">
-  <b>🤖 FYXZPEDIA USERBOT</b><br>
-  <i>Powered by Termux • Node.js • PM2 • Telegram</i>
-</p>
+🤝 Credits
+
+<div align="center">FYXZPEDIA
+
+Telegram Userbot for Termux Android
+
+⭐ Jika project ini bermanfaat, kamu bisa memberikan Star pada repository.
+
+</div>---
+
+<div align="center">🤖 FYXZPEDIA USERBOT
+
+"Telegram" • "Node.js" • "PM2" • "Termux"
+
+</div>
