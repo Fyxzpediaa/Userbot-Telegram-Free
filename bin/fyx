@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# fyx - Fyxzpedia Ubot manager. Works from any directory (resolves its own real path).
+SELF="$(readlink -f "$0")"
+ROOT="$(cd "$(dirname "$SELF")/.." && pwd)"
+S="$ROOT/scripts"
+# shellcheck source=../scripts/lib.sh
+source "$S/lib.sh"
+
+usage() {
+  cat <<USAGE
+Fyxzpedia Ubot Manager
+
+Usage:
+  fyx install     install / repair / reconfigure
+  fyx login       first-time Telegram login (interactive)
+  fyx start       start the bot (PM2)
+  fyx stop        stop the bot
+  fyx restart     restart the bot
+  fyx status      show status
+  fyx logs        show logs (extra args go to pm2 logs)
+  fyx settings    edit / reconfigure / validate / backup / restore settings
+  fyx boot        [enable|disable|status] autostart via Termux:Boot
+  fyx update      update from the private GitHub release
+  fyx version     show versions
+  fyx uninstall   remove the bot
+USAGE
+}
+
+cmd="${1:-help}"; [ $# -gt 0 ] && shift
+case "$cmd" in
+  help|-h|--help) usage ;;
+  install)   exec bash "$ROOT/install.sh" "$@" ;;
+  login)     exec bash "$S/login.sh" "$@" ;;
+  start|run) exec bash "$S/start-bot.sh" "$@" ;;
+  stop)      exec bash "$S/stop-bot.sh" "$@" ;;
+  restart)   exec bash "$S/restart-bot.sh" "$@" ;;
+  status)    exec bash "$S/status.sh" "$@" ;;
+  logs)      exec bash "$S/logs.sh" "$@" ;;
+  settings)  exec bash "$S/settings-menu.sh" "$@" ;;
+  boot)      exec bash "$ROOT/boot.sh" "$@" ;;
+  update)    exec bash "$ROOT/update.sh" "$@" ;;
+  uninstall) exec bash "$ROOT/uninstall.sh" "$@" ;;
+  version|-v|--version)
+    echo "Fyxzpedia Ubot manager $FYX_MANAGER_VERSION"
+    echo "Bot version: $(current_version)" ;;
+  *) echo "Unknown command: $cmd" >&2; echo >&2; usage >&2; exit 1 ;;
+esac

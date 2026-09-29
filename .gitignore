@@ -1,0 +1,15 @@
+.env
+settings.js
+config/settings.js
+config/config.json
+*.key
+*.pem
+secrets/
+credentials/
+session.json
+dbbot.json
+logs/
+backups/
+node_modules/
+bot-obfuscated/
+*.zip

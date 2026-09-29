@@ -1,0 +1,19 @@
+{
+  "name": "telegram-userbot-modular",
+  "version": "2.0.0",
+  "description": "Modular Telegram Userbot for Pterodactyl",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "telegram": "^2.20.11",
+    "input": "^1.0.1",
+    "axios": "^1.13.2",
+    "form-data": "^4.0.4",
+    "archiver": "^7.0.1",
+    "chokidar": "^3.6.0", 
+    "javascript-obfuscator": "*",
+    "telegraf": "*"
+  }
+}
