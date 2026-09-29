@@ -1,0 +1,94 @@
+
+name: Auto Extract ZIP
+
+on:
+  push:
+    paths:
+      - '**.zip'
+      - '**/*.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract ZIP files
+        run: |
+          python3 <<'PY'
+          import os
+          import zipfile
+          from pathlib import Path
+
+          root = Path(".").resolve()
+
+          # Cari ZIP di repository, kecuali folder internal Git.
+          archives = [
+              p for p in root.rglob("*.zip")
+              if ".git" not in p.parts
+              and "node_modules" not in p.parts
+              and ".next" not in p.parts
+          ]
+
+          if not archives:
+              print("Tidak ada file ZIP.")
+              raise SystemExit(0)
+
+          for archive in archives:
+              print(f"Mengekstrak: {archive}")
+
+              with zipfile.ZipFile(archive, "r") as z:
+                  for item in z.infolist():
+                      if item.is_dir():
+                          continue
+
+                      # Abaikan metadata macOS dan folder Git.
+                      parts = Path(item.filename).parts
+                      if (
+                          not parts
+                          or any(p in (".git", "__MACOSX")
+                                 for p in parts)
+                          or item.filename.startswith("/")
+                          or "\\" in item.filename
+                      ):
+                          print(f"Skip: {item.filename}")
+                          continue
+
+                      target = (root / item.filename).resolve()
+
+                      # Cegah ZIP menulis ke luar repository.
+                      if target != root and root not in target.parents:
+                          print(f"Skip path tidak aman: {item.filename}")
+                          continue
+
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      with z.open(item) as src, open(target, "wb") as dst:
+                          dst.write(src.read())
+
+              # Hapus ZIP setelah berhasil diekstrak.
+              archive.unlink()
+              print(f"ZIP dihapus: {archive}")
+
+          PY
+
+      - name: Commit hasil ekstrak
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan untuk di-commit."
+          else
+            git commit -m "Auto extract uploaded ZIP"
+            git push
+          fi
